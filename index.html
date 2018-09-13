@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>AngulaJs Assignment Shopping List Check Off</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="container" ng-app='ShoppingListApp'>
+    <h1>AngulaJs Assignment Shopping List Check Off</h1>
+
+    <div class="row">
+      <div class="col-lg-12">
+
+        <!-- To Buy List -->
+        <div class="col-md-6" ng-controller='ShoppingCtrl as list1'>
+          <h2>To Buy:</h2>
+          <ul>
+            <li ng-repeat="item in list1.items">{{$index + 1}}. Buy {{item.quantity}} of {{item.name}}(s)
+              <button class="btn btn-default" ng-click="list1.removeItem($index);"><span class="glyphicon glyphicon-ok"></span>
+                Bought</button>
+            </li>
+          </ul>
+          <div ng-show="!list1.items.length" class="emptyMessage">Everything is bought!</div>
+        </div>
+
+        <div class="col-md-6" ng-controller='ShoppingCtrl2 as list2'>
+          <h2>Already Bought:</h2>
+          <ul>
+            <li ng-repeat="item in list2.items">{{$index + 1}}. Bought {{item.quantity}} of {{item.name}}(s)
+            </li>
+          </ul>
+          <div ng-show="!list2.items.length" class="emptyMessage">Nothing bought yet.</div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <script src="js/angular.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
